@@ -5,4 +5,7 @@
     <color name="colorPrimaryDark">#455A64</color>
     <color name="colorAccent">#FF5722</color>
 
+    <color name="text_title_color">#fff</color>
+    <color name="text_title_dim">#7000</color>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.funnystep.populartvshows.data.source;
 
+import com.funnystep.populartvshows.Stubs;
 import com.funnystep.populartvshows.data.model.Result;
 import com.funnystep.populartvshows.data.model.TvShowDetailResponse;
 import com.funnystep.populartvshows.data.model.TvShowSimilarResponse;
@@ -46,7 +47,7 @@ public class DataSourceTests {
 
     @Test
     public void test_popular_tv_shows_response_deserialization() throws Exception {
-        mMockWebServer.enqueue(new MockResponse().setBody(Responses.RESPONSE_POPULAR_TVSHOWS));
+        mMockWebServer.enqueue(new MockResponse().setBody(Stubs.RESPONSE_POPULAR_TVSHOWS));
 
         Call<TvShowsResponse> call = mService.fetchTvShows(mApiKey, mLanguage, 1);
         Response<TvShowsResponse> response = call.execute();
@@ -93,7 +94,7 @@ public class DataSourceTests {
 
     @Test
     public void test_tv_shows_details_response_deserialization() throws Exception {
-        mMockWebServer.enqueue(new MockResponse().setBody(Responses.RESPONSE_TV_SHOW_DETAIL));
+        mMockWebServer.enqueue(new MockResponse().setBody(Stubs.RESPONSE_TV_SHOW_DETAIL));
 
         Call<TvShowDetailResponse> call = mService.fetchTvShowDetails("", mApiKey, mLanguage);
         Response<TvShowDetailResponse> response = call.execute();
@@ -151,7 +152,7 @@ public class DataSourceTests {
 
     @Test
     public void test_similar_tv_shows_response_deserialization() throws Exception {
-        mMockWebServer.enqueue(new MockResponse().setBody(Responses.RESPONSE_SIMILAR_TV_SHOWS));
+        mMockWebServer.enqueue(new MockResponse().setBody(Stubs.RESPONSE_SIMILAR_TV_SHOWS));
 
         Call<TvShowSimilarResponse> call = mService.fetchSimilarTvShows("", mApiKey, mLanguage, 1);
         Response<TvShowSimilarResponse> response = call.execute();

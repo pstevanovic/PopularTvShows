@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.funnystep.tvshows.ui.custom.SqareCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/micro_margin"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardCornerRadius="@dimen/mini_margin">
+
+    <ImageView
+        android:id="@+id/tvshow_poster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/c_descr_tv_poster"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_poster" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/text_title_dim"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvshow_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="@color/text_title_color"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvshow_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:lines="1"
+            android:text=""
+            android:textColor="@color/text_title_color"
+            android:textSize="@dimen/text_small" />
+
+    </LinearLayout>
+
+</com.funnystep.tvshows.ui.custom.SqareCardView>
+

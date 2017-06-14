@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvshow_list_main_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.funnystep.populartvshows.ui.tvshows.TvShowsListActivity">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/tvshow_list_swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/tvshow_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/micro_margin"
+            app:layoutManager="GridLayoutManager"
+            tools:listitem="@layout/tvshow_grid_content" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</FrameLayout>
