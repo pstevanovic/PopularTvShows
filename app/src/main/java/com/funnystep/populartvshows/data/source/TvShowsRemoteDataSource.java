@@ -4,6 +4,7 @@ import com.funnystep.populartvshows.data.model.TvShowDetailResponse;
 import com.funnystep.populartvshows.data.model.TvShowSimilarResponse;
 import com.funnystep.populartvshows.data.model.TvShowsResponse;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.util.Locale;
@@ -54,7 +55,7 @@ public class TvShowsRemoteDataSource implements TvShowsDataSource {
 
         mService.fetchTvShows(API_KEY, getLanguage(), page).enqueue(new retrofit2.Callback<TvShowsResponse>() {
             @Override
-            public void onResponse(Call<TvShowsResponse> call, retrofit2.Response<TvShowsResponse> response) {
+            public void onResponse(@NonNull Call<TvShowsResponse> call, @NonNull retrofit2.Response<TvShowsResponse> response) {
                 if (response.isSuccessful()) {
                     callback.onPopularTvShowsFetched(response.body());
                 } else {
@@ -63,7 +64,7 @@ public class TvShowsRemoteDataSource implements TvShowsDataSource {
             }
 
             @Override
-            public void onFailure(Call<TvShowsResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<TvShowsResponse> call, @NonNull Throwable t) {
                 callback.onDataFetchError(t.getMessage());
             }
         });
@@ -76,7 +77,7 @@ public class TvShowsRemoteDataSource implements TvShowsDataSource {
 
         mService.fetchTvShowDetails(detailsUrl, API_KEY, getLanguage()).enqueue(new retrofit2.Callback<TvShowDetailResponse>() {
             @Override
-            public void onResponse(Call<TvShowDetailResponse> call, retrofit2.Response<TvShowDetailResponse> response) {
+            public void onResponse(@NonNull Call<TvShowDetailResponse> call, @NonNull retrofit2.Response<TvShowDetailResponse> response) {
                 if (response.isSuccessful()) {
                     callback.onTvShowDetailsFetched(response.body());
                 } else {
@@ -85,7 +86,7 @@ public class TvShowsRemoteDataSource implements TvShowsDataSource {
             }
 
             @Override
-            public void onFailure(Call<TvShowDetailResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<TvShowDetailResponse> call, @NonNull Throwable t) {
                 callback.onDataFetchError(t.getMessage());
             }
         });
@@ -98,7 +99,7 @@ public class TvShowsRemoteDataSource implements TvShowsDataSource {
 
         mService.fetchSimilarTvShows(url, API_KEY, getLanguage(), page).enqueue(new retrofit2.Callback<TvShowSimilarResponse>() {
             @Override
-            public void onResponse(Call<TvShowSimilarResponse> call, retrofit2.Response<TvShowSimilarResponse> response) {
+            public void onResponse(@NonNull Call<TvShowSimilarResponse> call, @NonNull retrofit2.Response<TvShowSimilarResponse> response) {
                 if (response.isSuccessful()) {
                     callback.onSimilarTvShowsFetched(response.body());
                 } else {
@@ -107,7 +108,7 @@ public class TvShowsRemoteDataSource implements TvShowsDataSource {
             }
 
             @Override
-            public void onFailure(Call<TvShowSimilarResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<TvShowSimilarResponse> call, @NonNull Throwable t) {
                 callback.onDataFetchError(t.getMessage());
             }
         });
