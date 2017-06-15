@@ -14,7 +14,7 @@ import android.view.View;
 import com.funnystep.populartvshows.R;
 import com.funnystep.populartvshows.data.source.TvShowsRemoteDataSource;
 import com.funnystep.populartvshows.ui.model.TvShowBasic;
-import com.funnystep.populartvshows.ui.tvshowlist.TvShowDetailActivity;
+import com.funnystep.populartvshows.ui.tvshowdetail.TvShowDetailActivity;
 
 import java.util.List;
 

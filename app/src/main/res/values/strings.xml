@@ -1,10 +1,29 @@
 <resources>
 
-    <string name="app_name">TV Shows</string>
+    <string name="app_name">Popular TV Shows</string>
 
     <string name="error_message" formatted="false">Error: %s</string>
 
+    <string name="original_name">Original Name</string>
+    <string name="genre">Genre</string>
+    <string name="overview">Overview</string>
+    <string name="status">Status</string>
+    <string name="votes">Votes</string>
+    <string name="popularity">Popularity</string>
+    <string name="production">Production</string>
+    <string name="networks">Networks</string>
+    <string name="created_by">Created by</string>
+    <string name="air_date">Air Date</string>
+    <string name="type">Type</string>
+    <string name="original_language">Original Language</string>
+    <string name="languages">Languages</string>
+    <string name="seasons_episodes">Seasons / Episodes</string>
+    <string name="homepage">Homepage</string>
+    <string name="unknown">Unknown</string>
+    <string name="air_date_first_last" formatted="false">First: %s Last: %s</string>
+
     <!-- content descriptors -->
     <string name="c_descr_tv_poster">tv_poster</string>
+    <string name="c_descr_tv_detail_poster">tv_detail_poster</string>
 
 </resources>
