@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.funnystep.populartvshows.R;
-import com.funnystep.populartvshows.ui.Utils;
+import com.funnystep.populartvshows.ui.utils.Utils;
 import com.funnystep.populartvshows.ui.model.TvShowBasic;
 
 import java.util.ArrayList;
@@ -98,11 +98,11 @@ class TvShowsListAdapter extends RecyclerView.Adapter<TvShowsListAdapter.TvShowL
         @Override
         public void onClick(View view) {
             if (mOnItemClickListener != null)
-                mOnItemClickListener.onListItemClicked(getAdapterPosition());
+                mOnItemClickListener.onListItemClicked(getAdapterPosition(), view);
         }
     }
 
     interface ListItemClickListener {
-        void onListItemClicked(int position);
+        void onListItemClicked(int position, View view);
     }
 }

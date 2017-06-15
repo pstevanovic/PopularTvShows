@@ -5,6 +5,7 @@ import com.funnystep.populartvshows.ui.model.PosterQuality;
 import com.squareup.picasso.Picasso;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
@@ -45,7 +46,11 @@ public class Utils {
 
         String posterPath = getPosterUrl(poster, PosterQuality.QUALITY_500);
 
-        Picasso.with(view.getContext()).load(posterPath).into(view);
+        Picasso.with(view.getContext())
+               .load(posterPath)
+               .error(Color.argb(255, 266, 255, 255))
+               .placeholder(view.getDrawable())
+               .into(view);
     }
 
     public static String getPosterUrl(String poster, @PosterQuality String quality) {

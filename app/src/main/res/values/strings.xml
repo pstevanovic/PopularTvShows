@@ -25,5 +25,6 @@
     <!-- content descriptors -->
     <string name="c_descr_tv_poster">tv_poster</string>
     <string name="c_descr_tv_detail_poster">tv_detail_poster</string>
+    <string name="c_descr_full_poster">full_poster</string>
 
 </resources>

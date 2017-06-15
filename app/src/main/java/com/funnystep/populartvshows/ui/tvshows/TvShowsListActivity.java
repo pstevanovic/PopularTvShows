@@ -1,5 +1,6 @@
 package com.funnystep.populartvshows.ui.tvshows;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 
 import com.funnystep.populartvshows.R;
@@ -91,13 +93,21 @@ public class TvShowsListActivity
     // TvShowsListAdapter.ListItemClickListener
 
     @Override
-    public void onListItemClicked(int position) {
+    public void onListItemClicked(int position, View view) {
         TvShowBasic show = mAdapter.getTvShow(position);
 
         Intent intent = new Intent(this, TvShowDetailActivity.class);
         intent.putExtra(TvShowDetailActivity.TVSHOW_BASIC_DETAILS, show);
 
-        startActivity(intent);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
+                    new Pair<>(view.findViewById(R.id.tvshow_poster), "poster_transition"),
+                    new Pair<>(view.findViewById(R.id.tvshow_details), "title_transition"));
+            options.toBundle();
+            startActivity(intent, options.toBundle());
+        } else {
+            startActivity(intent);
+        }
     }
 
     // TvShowsContract.View

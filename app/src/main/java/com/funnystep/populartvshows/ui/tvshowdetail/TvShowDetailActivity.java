@@ -20,7 +20,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import java.util.List;
@@ -79,6 +82,16 @@ public class TvShowDetailActivity
             TvShowDetails tvShowDetails = Converter.convertToDetail(tvShow);
             updateHeader(tvShowDetails);
             mAdapter.setInitialData(tvShowDetails);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -146,12 +159,10 @@ public class TvShowDetailActivity
         if (view.getId() == mPoster.getId()) {
             final String url = Utils.getPosterUrl((String) mPoster.getTag(), PosterQuality.QUALITY_FULL);
             if (url != null) {
-                mFullScreenPosterView = new ImageView(this);
-                mFullScreenPosterView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                mFullScreenPosterView.setOnTouchListener(new ImageTouchListener());
+                final ViewGroup posterLayout = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.poster_fullsize_layout, null);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-                builder.setView(mFullScreenPosterView)
+                builder.setView(posterLayout)
                        .setOnCancelListener(new DialogInterface.OnCancelListener() {
                            @Override
                            public void onCancel(DialogInterface dialogInterface) {
@@ -159,10 +170,13 @@ public class TvShowDetailActivity
                            }
                        }).create().show();
 
-                mFullScreenPosterView.getLayoutParams().height = Utils.getScreenHeight(this);
-                mFullScreenPosterView.getLayoutParams().width = Utils.getScreenWidth(this);
+                mFullScreenPosterView = posterLayout.findViewById(R.id.poster_fullsize_imageview);
+                mFullScreenPosterView.setOnTouchListener(new ImageTouchListener());
 
-                Picasso.with(this).load(url).placeholder(mPoster.getDrawable()).into(mFullScreenPosterView);
+                Picasso.with(this)
+                       .load(url)
+                       .error(mPoster.getDrawable())
+                       .into(mFullScreenPosterView);
             }
         }
     }

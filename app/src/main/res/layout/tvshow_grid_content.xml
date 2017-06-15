@@ -2,13 +2,15 @@
 <com.funnystep.populartvshows.ui.custom.SqareCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:layout_margin="@dimen/micro_margin"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    card_view:cardCornerRadius="@dimen/mini_margin">
+    card_view:cardCornerRadius="@dimen/mini_margin"
+    tools:targetApi="lollipop">
 
     <ImageView
         android:id="@+id/tvshow_poster"
@@ -16,14 +18,19 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/c_descr_tv_poster"
         android:scaleType="centerCrop"
-        android:src="@drawable/default_poster" />
+        android:src="@drawable/default_poster"
+        android:transitionName="poster_transition"
+        tools:targetApi="lollipop" />
 
     <LinearLayout
+        android:id="@+id/tvshow_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/text_title_dim"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:transitionName="title_transition"
+        tools:targetApi="lollipop">
 
         <TextView
             android:id="@+id/tvshow_title"
