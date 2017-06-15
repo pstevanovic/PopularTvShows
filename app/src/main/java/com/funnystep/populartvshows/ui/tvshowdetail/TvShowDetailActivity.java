@@ -170,6 +170,9 @@ public class TvShowDetailActivity
                            }
                        }).create().show();
 
+                posterLayout.getLayoutParams().width = Utils.getScreenWidth(this);
+                posterLayout.getLayoutParams().height = Utils.getScreenHeight(this);
+
                 mFullScreenPosterView = posterLayout.findViewById(R.id.poster_fullsize_imageview);
                 mFullScreenPosterView.setOnTouchListener(new ImageTouchListener());
 
